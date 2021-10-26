@@ -1,3 +1,6 @@
-celery -A celery_tut worker --loglevel=INFO 
+{% comment %} celery -A celery_tut worker --loglevel=INFO 
 celery -A celery_tut flower --conf=celery_tut/flowerconfig.py
-celery -A celery_tut beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+celery -A celery_tut beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler {% endcomment %}
+
+{% comment %} All commands in one place [docker compose] {% endcomment %}
+docker-compose up --build

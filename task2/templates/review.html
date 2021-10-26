@@ -1,11 +1,33 @@
 {% extends 'base.html' %}
 {% block title %}Review{% endblock %} 
 {% block content %}
-<style></style>
-<div>
-	<form action="{% url 'reviews' %}" method="post">{% csrf_token %}
-		{{form.as_p}}
-		<button type="submit">Submit</button>
-	</form>
+<style>
+	.review-container {
+		height: 100vh;
+		
+	}
+
+	.title-container {
+		align-items: center;
+		color: #fff;
+	}
+
+	.form-container, .title-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+</style>
+
+<div class="row review-container">
+	<div class="col-4 bg-primary title-container">
+		<h3 class="white">Review</h3>
+	</div>
+	<div class="col-6 offset-1 form-container">
+		<form action="{% url 'reviews' %}" method="post">{% csrf_token %}
+			{{form.as_p}}
+			<button type="submit" class="btn btn-primary col-12">Submit</button>
+		</form>
+	</div>
 </div>
 {% endblock %}
